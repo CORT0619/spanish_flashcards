@@ -1,0 +1,23 @@
+.flashcard {
+  font-family: 'Fira Sans Extra Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 54px;
+  border: 2px solid #000;
+  width: 6.25em;
+  height: 10em;
+  background: #fff;
+
+  &__question {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__answer {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
