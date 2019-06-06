@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-flash-card',
+  selector: 'flash-card',
   templateUrl: './flash-card.component.html',
   styleUrls: ['./flash-card.component.css']
 })
 export class FlashCardComponent implements OnInit {
+  @Input() data: Array<Card>;
+  currCard: Card;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
+    this.currCard = this.data[0];
   }
-
 }
