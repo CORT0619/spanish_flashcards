@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { FlashCardComponent } from './flash-card.component';
 
 describe('FlashCardComponent', () => {
@@ -8,9 +7,8 @@ describe('FlashCardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FlashCardComponent ]
-    })
-    .compileComponents();
+      declarations: [FlashCardComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -21,5 +19,9 @@ describe('FlashCardComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  describe('', () => {
+    it('', () => {});
   });
 });
