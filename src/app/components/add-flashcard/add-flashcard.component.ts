@@ -12,4 +12,8 @@ export class AddFlashcardComponent implements OnInit {
   ngOnInit() {
   }
 
+  addCard() {
+    console.log('clicked');
+  }
+
 }
