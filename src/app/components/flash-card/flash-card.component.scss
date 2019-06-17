@@ -15,6 +15,10 @@
     cursor: pointer;
   }
 
+  &__card {
+    user-select: none;
+  }
+
   &__question {
     height: 100%;
     display: flex;
