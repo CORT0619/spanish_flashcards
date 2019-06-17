@@ -1,11 +1,14 @@
-<ng-template *ngIf="navDirection === 'LEFT'">
-  <button mat-button (click)="goBackward()">
+<ng-template [ngIf]="navDirection === 'LEFT'">
+  <!-- <button class="nav-arrow" mat-button (click)="goBackward()" [disabled]="currentElement === 0"
+    [class.nav-arrow--disabled]="currentElement === 0"> -->
+  <button class="nav-arrow" mat-button (click)="goBackward()">
     <mat-icon>chevron_left</mat-icon>
   </button>
 </ng-template>
 
-<ng-template *ngIf="navDirection === 'RIGHT'">
-  <button mat-button (click)="goForward()">
+<ng-template [ngIf]="navDirection === 'RIGHT'">
+  <button class="nav-arrow" mat-button (click)="goForward()" [disabled]="currentElement === length - 1"
+    [class.nav-arrow--disabled]="currentElement === length - 1">
     <mat-icon>chevron_right</mat-icon>
   </button>
 </ng-template>
