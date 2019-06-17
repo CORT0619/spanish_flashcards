@@ -1,11 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { FlashcardNavService } from '@shared/services/flashcard-nav.service';
 @Component({
   selector: 'cardholder',
   templateUrl: './cardholder.component.html',
   styleUrls: ['./cardholder.component.scss']
 })
-export class CardholderComponent implements OnInit {
+export class CardholderComponent implements OnInit, OnDestroy {
+  currentElementSubscription: Subscription;
+  currElement = 0;
+  currCard: Card;
   cards = [
     { question: 'Hola!', answer: 'Hello' },
     { question: 'Como estas?', answer: 'How are you?' },
@@ -15,11 +19,30 @@ export class CardholderComponent implements OnInit {
     { question: 'La puerta', answer: 'The door' }
   ];
 
-  constructor() {}
+  constructor(private flashCardNavService: FlashcardNavService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.currentElementSubscription = this.flashCardNavService.currentElement$.subscribe(
+      currElement => {
+        this.currCard = this.cards[currElement];
+        console.log('this.currCard ', this.currCard);
+      }
+    );
+  }
 
   onNavigate(e) {
     console.log('e ', e);
+  }
+
+  retrieveActiveCard(e) {
+    this.currElement = e;
+    this.currCard = this.cards[e];
+    console.log('this.currCard ', this.currCard);
+  }
+
+  ngOnDestroy() {
+    if (this.currentElementSubscription) {
+      this.currentElementSubscription.unsubscribe();
+    }
   }
 }

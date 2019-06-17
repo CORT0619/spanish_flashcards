@@ -1,4 +1,10 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  OnDestroy,
+  ChangeDetectorRef
+} from '@angular/core';
 import {
   trigger,
   state,
@@ -6,8 +12,6 @@ import {
   animate,
   transition
 } from '@angular/animations';
-import { FlashcardNavService } from '@shared/services/flashcard-nav.service';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'flash-card',
@@ -17,26 +21,20 @@ import { Subscription } from 'rxjs';
     trigger('spinCard', [state('showAnswer', style({ transform: '' }))])
   ]
 })
-export class FlashCardComponent implements OnInit, OnDestroy {
-  currentElementSubscription: Subscription;
-  @Input() data: Array<Card>;
+export class FlashCardComponent implements OnInit {
+  @Input() currElement: Card;
   currCard: Card;
   answerVisible = false;
 
-  constructor(private flashCardNavService: FlashcardNavService) {}
-
-  ngOnInit() {
-    this.currCard = this.data[0];
-    this.currentElementSubscription = this.flashCardNavService.currentElement$.subscribe(
-      currElement => {
-        this.currCard = this.data[currElement];
-      }
-    );
+  constructor(private ref: ChangeDetectorRef) {
+    ref.detach();
+    setInterval(() => {
+      ref.detectChanges();
+    }, 5000);
   }
 
-  ngOnDestroy() {
-    if (this.currentElementSubscription) {
-      this.currentElementSubscription.unsubscribe();
-    }
+  ngOnInit() {
+    this.currCard = this.currElement;
+    console.log('this.currCard ', this.currCard);
   }
 }
