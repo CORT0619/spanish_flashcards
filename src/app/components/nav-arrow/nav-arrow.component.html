@@ -1,0 +1,11 @@
+<ng-template *ngIf="navDirection === 'LEFT'">
+  <button mat-button (click)="goBackward()">
+    <mat-icon>chevron_left</mat-icon>
+  </button>
+</ng-template>
+
+<ng-template *ngIf="navDirection === 'RIGHT'">
+  <button mat-button (click)="goForward()">
+    <mat-icon>chevron_right</mat-icon>
+  </button>
+</ng-template>
