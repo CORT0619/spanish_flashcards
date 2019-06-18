@@ -25,19 +25,15 @@ export class CardholderComponent implements OnInit, OnDestroy {
     this.currentElementSubscription = this.flashCardNavService.currentElement$.subscribe(
       currElement => {
         this.currCard = this.cards[currElement];
-        console.log('this.currCard ', this.currCard);
       }
     );
   }
 
-  onNavigate(e) {
-    console.log('e ', e);
-  }
+  onNavigate(e) {}
 
   retrieveActiveCard(e) {
     this.currElement = e;
     this.currCard = this.cards[e];
-    console.log('this.currCard ', this.currCard);
   }
 
   ngOnDestroy() {
