@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NavArrowComponent } from './nav-arrow.component';
+import { MatIconModule } from '@angular/material/icon';
 
 describe('NavArrowComponent', () => {
   let component: NavArrowComponent;
@@ -8,9 +9,9 @@ describe('NavArrowComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NavArrowComponent ]
-    })
-    .compileComponents();
+      imports: [MatIconModule],
+      declarations: [NavArrowComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
