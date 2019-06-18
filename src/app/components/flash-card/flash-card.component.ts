@@ -2,8 +2,9 @@ import {
   Component,
   OnInit,
   Input,
-  OnDestroy,
-  ChangeDetectorRef
+  // ChangeDetectorRef,
+  OnChanges,
+  SimpleChanges
 } from '@angular/core';
 import {
   trigger,
@@ -21,20 +22,23 @@ import {
     trigger('spinCard', [state('showAnswer', style({ transform: '' }))])
   ]
 })
-export class FlashCardComponent implements OnInit {
+export class FlashCardComponent implements OnInit, OnChanges {
   @Input() currElement: Card;
   currCard: Card;
   answerVisible = false;
 
-  constructor(private ref: ChangeDetectorRef) {
-    ref.detach();
-    setInterval(() => {
-      ref.detectChanges();
-    }, 5000);
+  constructor(/*private ref: ChangeDetectorRef*/) {
+    // ref.detach();
+    // setInterval(() => {
+    //   ref.detectChanges();
+    // }, 1000);
   }
 
   ngOnInit() {
     this.currCard = this.currElement;
-    console.log('this.currCard ', this.currCard);
+  }
+
+  ngOnChanges(change: SimpleChanges) {
+    this.currCard = change.currElement.currentValue;
   }
 }
