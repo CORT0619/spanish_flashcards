@@ -2,9 +2,13 @@
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+There are a few options to get the application started. The first option is to run the command `ng serve` and then navigate to `http://localhost:4200/`.
 
-If you're looking to run the app on a different port run the command `npm run start -- --port=portNumber`
+The second option is run the command `npm start` which will then open a browser when on localhost port 4200.
+
+Lastly, if you receive an error message that port 4200 is currently in use you can run the following command and supply a different port.
+
+`npm run start -- --port=portNumber`
 
 ## Code scaffolding
 
