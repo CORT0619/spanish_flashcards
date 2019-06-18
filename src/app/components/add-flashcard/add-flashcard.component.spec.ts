@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AddFlashcardComponent } from './add-flashcard.component';
+import { MatIconModule } from '@angular/material/icon';
 
 describe('AddFlashcardComponent', () => {
   let component: AddFlashcardComponent;
@@ -8,9 +9,9 @@ describe('AddFlashcardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddFlashcardComponent ]
-    })
-    .compileComponents();
+      imports: [MatIconModule],
+      declarations: [AddFlashcardComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
