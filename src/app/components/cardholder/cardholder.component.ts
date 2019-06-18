@@ -30,7 +30,7 @@ export class CardholderComponent implements OnInit, OnDestroy {
     );
   }
 
-  onNavigate(e) {}
+  // onNavigate(e) {}
 
   retrieveActiveCard(e) {
     this.currElement = e;
