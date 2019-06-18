@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { FlashcardNavService } from '@shared/services/flashcard-nav.service';
+import { Card } from '@shared/models/card.model';
 @Component({
   selector: 'cardholder',
   templateUrl: './cardholder.component.html',

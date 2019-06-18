@@ -13,6 +13,7 @@ import {
   animate,
   transition
 } from '@angular/animations';
+import { Card } from '@shared/models/card.model';
 
 @Component({
   selector: 'flash-card',
