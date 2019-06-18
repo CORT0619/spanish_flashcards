@@ -1,18 +1,44 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  // ChangeDetectorRef,
+  OnChanges,
+  SimpleChanges
+} from '@angular/core';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition
+} from '@angular/animations';
 
 @Component({
   selector: 'flash-card',
   templateUrl: './flash-card.component.html',
-  styleUrls: ['./flash-card.component.scss']
+  styleUrls: ['./flash-card.component.scss'],
+  animations: [
+    trigger('spinCard', [state('showAnswer', style({ transform: '' }))])
+  ]
 })
-export class FlashCardComponent implements OnInit {
-  @Input() data: Array<Card>;
+export class FlashCardComponent implements OnInit, OnChanges {
+  @Input() currElement: Card;
   currCard: Card;
   answerVisible = false;
 
-  constructor() {}
+  constructor(/*private ref: ChangeDetectorRef*/) {
+    // ref.detach();
+    // setInterval(() => {
+    //   ref.detectChanges();
+    // }, 1000);
+  }
 
   ngOnInit() {
-    this.currCard = this.data[0];
+    this.currCard = this.currElement;
+  }
+
+  ngOnChanges(change: SimpleChanges) {
+    this.currCard = change.currElement.currentValue;
   }
 }
