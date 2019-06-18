@@ -19,17 +19,12 @@
     user-select: none;
   }
 
-  &__question {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
+  &__question,
   &__answer {
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
   }
 }
