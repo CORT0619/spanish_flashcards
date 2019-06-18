@@ -1,6 +1,6 @@
 # Spanish Flashcards
 
-## Development server
+## Local Development
 
 There are a few options to get the application started. The first option is to run the command `ng serve` and then navigate to `http://localhost:4200/`.
 
@@ -18,9 +18,9 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+## Running unit tests and Code Coverage
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `npm test` to execute the unit tests via [Karma](https://karma-runner.github.io). This command will also run code coverage and display the coverage summary.
 
 ## Running end-to-end tests
 
