@@ -23,4 +23,12 @@ describe('AddFlashcardComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  describe('#addCard', () => {
+    it('should console.log `clicked`', () => {
+      spyOn(console, 'log');
+      component.addCard();
+      expect(console.log).toHaveBeenCalledWith('clicked');
+    });
+  });
 });

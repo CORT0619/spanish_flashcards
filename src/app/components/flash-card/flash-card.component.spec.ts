@@ -30,6 +30,7 @@ describe('FlashCardComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+    expect(component.currCard).toEqual(cards[0]);
   });
 
   describe('', () => {
