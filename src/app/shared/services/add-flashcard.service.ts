@@ -30,7 +30,6 @@ export class AddFlashcardService {
   }
 
   alertUpdateCards() {
-    console.log('cards updated');
     this.alertCardAdded.next(true);
   }
 }

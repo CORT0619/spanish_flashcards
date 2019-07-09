@@ -23,10 +23,20 @@ export class AddFlashcardModalComponent implements OnInit {
   ngOnInit() {}
 
   addTranslation() {
-    const englishTranslation = this.flashCardForm.get('englishTranslation')
-      .value;
-    const spanishTranslation = this.flashCardForm.get('spanishTranslation')
-      .value;
+    let englishTranslation = this.flashCardForm.get('englishTranslation').value;
+    englishTranslation = `${englishTranslation
+      .charAt(0)
+      .toUpperCase()}${englishTranslation.substring(
+      1,
+      englishTranslation.length
+    )}`;
+    let spanishTranslation = this.flashCardForm.get('spanishTranslation').value;
+    spanishTranslation = `${spanishTranslation
+      .charAt(0)
+      .toUpperCase()}${spanishTranslation.substring(
+      1,
+      spanishTranslation.length
+    )}`;
 
     this.addFlashCardService.addCard = {
       englishTranslation,
