@@ -1,4 +1,4 @@
 export interface Card {
-  question: string;
-  answer: string;
+  englishTranslation: string;
+  spanishTranslation: string;
 }

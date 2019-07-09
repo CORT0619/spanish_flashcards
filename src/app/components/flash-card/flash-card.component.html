@@ -1,4 +1,4 @@
 <div class="flashcard" (click)="answerVisible = !answerVisible" [@spinCard]="!answerVisible">
-    <div class="flashcard__card flashcard__question" *ngIf="!answerVisible">{{ currCard.question }}</div>
-    <div class="flashcard__card flashcard__answer" *ngIf="answerVisible">{{ currCard.answer }}</div>
+    <div class="flashcard__card flashcard__question" *ngIf="!answerVisible">{{ currCard.englishTranslation}}</div>
+    <div class="flashcard__card flashcard__answer" *ngIf="answerVisible">{{ currCard.spanishTranslation }}</div>
 </div>

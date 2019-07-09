@@ -1,9 +1,15 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AddFlashcardService {
+  private alertCardAdded: BehaviorSubject<boolean> = new BehaviorSubject<
+    boolean
+  >(false);
+  alertCardAddedSub$ = this.alertCardAdded.asObservable();
+
   constructor() {}
 
   set addCard({ englishTranslation, spanishTranslation }) {
@@ -21,5 +27,10 @@ export class AddFlashcardService {
       return JSON.parse(localStorage.getItem('cards'));
     }
     return false;
+  }
+
+  alertUpdateCards() {
+    console.log('cards updated');
+    this.alertCardAdded.next(true);
   }
 }

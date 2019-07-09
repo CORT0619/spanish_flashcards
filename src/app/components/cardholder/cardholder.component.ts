@@ -10,15 +10,22 @@ import { AddFlashcardService } from '@shared/services/add-flashcard.service';
 })
 export class CardholderComponent implements OnInit, OnDestroy {
   currentElementSubscription: Subscription;
+  cardAddedSubscription: Subscription;
   currElement = 0;
   currCard: Card;
   cards = [
-    { question: 'Hola!', answer: 'Hello' },
-    { question: 'Como estas?', answer: 'How are you?' },
-    { question: 'Buenos dias!', answer: 'Good morning' },
-    { question: 'Me llamo es...', answer: 'My name is..' },
-    { question: 'El autobus es amarillo', answer: 'The bus is yellow' },
-    { question: 'La puerta', answer: 'The door' }
+    { spanishTranslation: 'Hola!', englishTranslation: 'Hello' },
+    { spanishTranslation: 'Como estas?', englishTranslation: 'How are you?' },
+    { spanishTranslation: 'Buenos dias!', englishTranslation: 'Good morning' },
+    {
+      spanishTranslation: 'Me llamo es...',
+      englishTranslation: 'My name is..'
+    },
+    {
+      spanishTranslation: 'El autobus es amarillo',
+      englishTranslation: 'The bus is yellow'
+    },
+    { spanishTranslation: 'La puerta', englishTranslation: 'The door' }
   ];
 
   constructor(
@@ -32,6 +39,12 @@ export class CardholderComponent implements OnInit, OnDestroy {
         this.currCard = this.cards[currElement];
       }
     );
+
+    this.cardAddedSubscription = this.addFlashCardService.alertCardAddedSub$.subscribe(
+      () => {
+        this.retrieveAllCards();
+      }
+    );
   }
 
   // onNavigate(e) {}
@@ -43,6 +56,7 @@ export class CardholderComponent implements OnInit, OnDestroy {
       cards.forEach(card => {
         this.cards.push(card);
       });
+      console.log('this.cards ', this.cards);
     }
   }
 
@@ -54,6 +68,10 @@ export class CardholderComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     if (this.currentElementSubscription) {
       this.currentElementSubscription.unsubscribe();
+    }
+
+    if (this.cardAddedSubscription) {
+      this.cardAddedSubscription.unsubscribe();
     }
   }
 }

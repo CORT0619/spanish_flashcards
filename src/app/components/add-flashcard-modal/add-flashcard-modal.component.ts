@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AddFlashcardService } from '@shared/services/add-flashcard.service';
 import { FormBuilder, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'add-flashcard-modal',
@@ -15,7 +16,8 @@ export class AddFlashcardModalComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private addFlashCardService: AddFlashcardService
+    private addFlashCardService: AddFlashcardService,
+    public dialogRef: MatDialogRef<AddFlashcardModalComponent>
   ) {}
 
   ngOnInit() {}
@@ -30,5 +32,7 @@ export class AddFlashcardModalComponent implements OnInit {
       englishTranslation,
       spanishTranslation
     };
+
+    this.dialogRef.close();
   }
 }
