@@ -1,13 +1,13 @@
 <ng-template [ngIf]="navDirection === 'LEFT'">
   <button class="nav-arrow" mat-button (click)="goBackward()" [disabled]="currElement === 0"
-    [class.nav-arrow--disabled]="currElement === 0">
+    [class.nav-arrow--disabled]="currElement === 0" title="Previous FlashCard">
     <mat-icon>chevron_left</mat-icon>
   </button>
 </ng-template>
 
 <ng-template [ngIf]="navDirection === 'RIGHT'">
   <button class="nav-arrow" mat-button (click)="goForward()" [disabled]="currElement === length - 1"
-    [class.nav-arrow--disabled]="currElement === length - 1">
+    [class.nav-arrow--disabled]="currElement === length - 1" title="Next FlashCard">
     <mat-icon>chevron_right</mat-icon>
   </button>
 </ng-template>

@@ -5,22 +5,18 @@ import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
+import { AddFlashcardModalComponent } from '@components/add-flashcard-modal/add-flashcard-modal.component';
 
 @NgModule({
-  declarations: [
-    AddFlashcardComponent
-  ],
+  declarations: [AddFlashcardComponent],
   imports: [
     CommonModule,
     MatIconModule,
     MatButtonModule,
-    MatDialogModule
-  ],
-  exports: [
-    AddFlashcardComponent
-  ],
-  entryComponents: [
+    MatDialogModule,
     AddFlashcardModalModule
-  ]
+  ],
+  exports: [AddFlashcardComponent],
+  entryComponents: [AddFlashcardModalComponent]
 })
-export class AddFlashcardModule { }
+export class AddFlashcardModule {}
