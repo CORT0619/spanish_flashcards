@@ -1,4 +1,6 @@
+import { AddFlashcardModalComponent } from './../add-flashcard-modal/add-flashcard-modal.component';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'add-flashcard',
@@ -7,13 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddFlashcardComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public dialog: MatDialog
+  ) { }
 
   ngOnInit() {
   }
 
+  openModal() {
+    this.dialog.open(AddFlashcardModalComponent, {
+      width: '250px'
+    });
+  }
+
   addCard() {
     console.log('clicked');
+    this.openModal();
   }
+
+
+
 
 }
