@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { NavDirection, Direction } from '@shared/models/nav-direction.model';
+import { Direction } from '@shared/models/nav-direction.model';
 
 @Component({
   selector: 'nav-arrow',
@@ -7,25 +7,28 @@ import { NavDirection, Direction } from '@shared/models/nav-direction.model';
   styleUrls: ['./nav-arrow.component.scss']
 })
 export class NavArrowComponent implements OnInit {
-
-  currentElement = 0;
   @Input() navDirection: Direction;
-  @Input() arr: any;
+  @Input() length: number;
+  @Input() currElement: number;
   @Output() go = new EventEmitter<number>();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
-  goToCard() {
-    this.go.emit(this.currentElement);
-  }
+  ngOnInit() {}
 
   goBackward() {
-
+    let currCard = this.currElement;
+    if (this.length && currCard !== 0) {
+      currCard--;
+      this.go.emit(currCard);
+    }
   }
-  goForward() {
 
+  goForward() {
+    let currCard = this.currElement;
+    if (this.length && currCard < this.length - 1) {
+      currCard++;
+      this.go.emit(currCard);
+    }
   }
 }
