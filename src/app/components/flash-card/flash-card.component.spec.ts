@@ -32,8 +32,4 @@ describe('FlashCardComponent', () => {
     expect(component).toBeTruthy();
     expect(component.currCard).toEqual(cards[0]);
   });
-
-  describe('', () => {
-    it('', () => {});
-  });
 });

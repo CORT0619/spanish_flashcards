@@ -1,0 +1,12 @@
+<form method="POST" [formGroup]="flashCardForm">
+  <label for="english-vocab">
+    <span>English Word</span>
+    <input type="text" id="english-vocab" formControlName="englishTranslation" name="english-vocab" required>
+  </label>
+
+  <label for="spanish-vocab">
+    <span>Spanish Translation</span>
+    <input type="text" id="spanish-vocab" formControlName="spanishTranslation" name="spanish-vocab" required>
+  </label>
+  <button (click)="addTranslation()">Add</button>
+</form>

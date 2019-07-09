@@ -1,4 +1,10 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  async,
+  ComponentFixture,
+  TestBed,
+  tick,
+  ComponentFixtureAutoDetect
+} from '@angular/core/testing';
 
 import { CardholderComponent } from './cardholder.component';
 import { NavArrowModule } from '@components/nav-arrow/nav-arrow.module';
@@ -9,18 +15,12 @@ import { Card } from '@shared/models/card.model';
 describe('CardholderComponent', () => {
   let component: CardholderComponent;
   let fixture: ComponentFixture<CardholderComponent>;
-  const cards: Array<Card> = [
-    { question: 'Como is su pollo?', answer: 'How is your chicken?' },
-    {
-      question: 'El telefono es ocupado.',
-      answer: 'The telephone is occupied.'
-    }
-  ];
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [NavArrowModule, FlashCardModule, BrowserAnimationsModule],
       declarations: [CardholderComponent]
+      // providers: [{ provide: ComponentFixtureAutoDetect, useValue: true }]
     }).compileComponents();
   }));
 
@@ -28,7 +28,6 @@ describe('CardholderComponent', () => {
     fixture = TestBed.createComponent(CardholderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-    component.cards = cards;
   });
 
   it('should create', () => {
@@ -39,7 +38,29 @@ describe('CardholderComponent', () => {
     it('should set currElement and currCard', () => {
       component.retrieveActiveCard(1);
       expect(component.currElement).toEqual(1);
-      expect(component.currCard).toEqual(cards[1]);
+      expect(component.currCard).toEqual(component.cards[1]);
     });
+  });
+
+  describe('#click navArrow', () => {
+    it('should show the next flashcard', async(() => {
+      const cardHolder: HTMLElement = fixture.debugElement.nativeElement;
+      fixture.detectChanges();
+      const flashcard = cardHolder.querySelector('flash-card');
+      const question = flashcard.querySelector(
+        '.flashcard__card.flashcard__question'
+      );
+      expect(question.textContent).toEqual('Hola!');
+      const [leftArrow, rightArrow]: Array<HTMLElement> = Array.from(
+        cardHolder.querySelectorAll('nav-arrow')
+      );
+      rightArrow.dispatchEvent(new Event('click'));
+      // rightArrow.click();
+
+      return fixture.whenStable().then(() => {
+        fixture.detectChanges();
+        expect(question.textContent).toEqual('Como estas?');
+      });
+    }));
   });
 });
