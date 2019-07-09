@@ -43,6 +43,8 @@ export class CardholderComponent implements OnInit, OnDestroy {
     this.cardAddedSubscription = this.addFlashCardService.alertCardAddedSub$.subscribe(
       () => {
         this.retrieveAllCards();
+        this.currCard = this.cards[this.cards.length - 1];
+        this.currElement = this.cards.length - 1;
       }
     );
   }
@@ -56,7 +58,6 @@ export class CardholderComponent implements OnInit, OnDestroy {
       cards.forEach(card => {
         this.cards.push(card);
       });
-      console.log('this.cards ', this.cards);
     }
   }
 

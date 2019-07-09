@@ -41,5 +41,6 @@ export class FlashCardComponent implements OnInit, OnChanges {
 
   ngOnChanges(change: SimpleChanges) {
     this.currCard = change.currElement.currentValue;
+    this.answerVisible = false;
   }
 }

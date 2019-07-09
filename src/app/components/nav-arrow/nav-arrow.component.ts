@@ -27,7 +27,9 @@ export class NavArrowComponent implements OnInit {
   goForward() {
     let currCard = this.currElement;
     if (this.length && currCard < this.length - 1) {
+      console.log('currCard before ', currCard);
       currCard++;
+      console.log('currCard after ', currCard);
       this.go.emit(currCard);
     }
   }
