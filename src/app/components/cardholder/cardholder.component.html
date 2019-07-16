@@ -1,9 +1,17 @@
 <div class="flashcard-container">
-  <nav-arrow (go)="retrieveActiveCard($event)" [currElement]="currElement" [navDirection]="'LEFT'"
+  <!-- <nav-arrow (go)="retrieveActiveCard($event)" [currElement]="currElement" [navDirection]="'LEFT'"
     [length]="cards.length">
-  </nav-arrow>
+  </nav-arrow> -->
   <flash-card [currElement]="currCard"></flash-card>
-  <nav-arrow (go)="retrieveActiveCard($event)" [currElement]="currElement" [navDirection]="'RIGHT'"
+  <!-- <nav-arrow (go)="retrieveActiveCard($event)" [currElement]="currElement" [navDirection]="'RIGHT'"
     [length]="cards.length">
-  </nav-arrow>
+  </nav-arrow> -->
+  <div class="arrow-container">
+    <nav-arrow (go)="retrieveActiveCard($event)" [currElement]="currElement" [navDirection]="'LEFT'"
+      [length]="cards.length">
+    </nav-arrow>
+    <nav-arrow (go)="retrieveActiveCard($event)" [currElement]="currElement" [navDirection]="'RIGHT'"
+      [length]="cards.length">
+    </nav-arrow>
+  </div>
 </div>
