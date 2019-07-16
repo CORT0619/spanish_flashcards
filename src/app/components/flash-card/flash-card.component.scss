@@ -2,8 +2,11 @@
   font-family: 'Fira Sans Extra Condensed', sans-serif;
   font-weight: 700;
   font-size: 54px;
-  border: 1px solid #27272769;
+  border: 1px solid hsla(0, 0%, 15%, 0.412);
   width: 6.25em;
+  // max-width: 6.25em;
+  max-width: 100%;
+  // min-width: 6.25em;
   height: 10em;
   background: #fff;
   border-radius: 0.05em;
@@ -17,6 +20,7 @@
 
   &__card {
     user-select: none;
+    outline: 2px solid #000;
   }
 
   &__question,
