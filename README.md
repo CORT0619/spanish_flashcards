@@ -10,6 +10,8 @@ Lastly, if you receive an error message that port 4200 is currently in use you c
 
 `npm run start -- --port=portNumber`
 
+## Technologies Utilized
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
